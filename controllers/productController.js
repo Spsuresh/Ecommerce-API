@@ -1,4 +1,4 @@
-const Product = require('../models/product');
+const Product = require("../models/product");
 
 exports.createProduct = async (req, res) => {
   try {
@@ -7,7 +7,7 @@ exports.createProduct = async (req, res) => {
     res.status(201).json({ product });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Failed to create product' });
+    res.status(500).json({ error: "Failed to create product" });
   }
 };
 
@@ -17,7 +17,7 @@ exports.listProducts = async (req, res) => {
     res.json({ products });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Failed to fetch products' });
+    res.status(500).json({ error: "Failed to fetch products" });
   }
 };
 
@@ -26,12 +26,12 @@ exports.deleteProduct = async (req, res) => {
     const { id } = req.params;
     const product = await Product.findByIdAndRemove(id);
     if (!product) {
-      return res.status(404).json({ error: 'Product not found' });
+      return res.status(404).json({ error: "Product not found" });
     }
-    res.json({ message: 'Product deleted' });
+    res.json({ message: "Product deleted" });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Failed to delete product' });
+    res.status(500).json({ error: "Failed to delete product" });
   }
 };
 
@@ -45,14 +45,14 @@ exports.updateProductQuantity = async (req, res) => {
       { new: true }
     );
     if (!product) {
-      return res.status(404).json({ error: 'Product not found' });
+      return res.status(404).json({ error: "Product not found" });
     }
     res.json({
       product,
-      message: 'Updated successfully',
+      message: "Updated successfully",
     });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Failed to update product' });
+    res.status(500).json({ error: "Failed to update product" });
   }
 };
