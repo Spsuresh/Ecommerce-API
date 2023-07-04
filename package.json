@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": ""
+    "build": "eslint"
+
   },
   "author": "",
   "license": "ISC",
@@ -16,5 +17,8 @@
     "mongoose": "^7.3.1",
     "nodemon": "^2.0.22",
     "postman": "^0.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.44.0"
   }
 }
